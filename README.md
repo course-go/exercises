@@ -16,7 +16,7 @@ This repository contains a collection of well-documented exercises that are desi
     - solve collections katas
 4. Concurrency & parallelism
     - solve channel and concurrency katas
-5. Generics & testing
+5. Generics & testing ✅
     - linked-list implementation
     - test the implementation
 6. PPROF
