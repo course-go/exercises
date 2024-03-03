@@ -20,22 +20,20 @@ This repository contains a collection of well-documented exercises that are desi
     - solve collections katas
 4. Concurrency & parallelism
     - solve channel and concurrency katas
-5. Generics
+5. Generics & testing
     - linked-list implementation
-6. Testing
-    - create multiple tests
-7. PPROF
+    - test the implementation
+6. PPROF
     - generate and examine pprof profile
-8. REST API
+7. REST API
     - finish implementation of simple REST API
-9. Docker
+8. Docker
     - create dockerfile
-10. Docker compose
     - create docker compose
-11. Databases
+9. Databases
     - create queries using pgx (database/sql)
     - create and use GORM models
-12. CI/CD
+10. CI/CD
     - create GitHub CI pipeline
-13. Promethus
+11. Promethus
     - export prometheus metrics
