@@ -8,10 +8,6 @@ This repository contains a collection of well-documented exercises that are desi
 
 ## Exercises
 
-1. Workspace setup and `go` executable
-
-## Exercise ideas
-
 1. Introduction ✅
     - practice running **go** executable with hello world
 2. Fundamentals #1
