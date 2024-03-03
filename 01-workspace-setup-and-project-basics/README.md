@@ -24,14 +24,14 @@ The goal of this exercise is to set-up your Go development environment and pract
 
 The go command and the tools it invokes consult environment variables for configuration. We will just take a quick glimpse at them.
 
-1. Go downloads and installs all packages to a directory specified by the `GOPATH` environment variable.
-    - To learn more about `GOPATH` execute `go env GOPATH`.
+1. Go downloads and installs all packages to a directory specified by the **GOPATH** environment variable.
+    - To learn more about **GOPATH** execute `go env GOPATH`.
     - By default:
-        - `$HOME/go` on Unix,
-        - `%USERPROFILE%\go` on Windows
-    - I personally recommend hiding the `go` directory by setting the `GOPATH` explicitly.
+        - **$HOME/go** on Unix,
+        - **%USERPROFILE%\go** on Windows
+    - I personally recommend hiding the **go** directory by setting the **GOPATH** explicitly.
         - Add `export GOPATH=$HOME/.go` to your bashrc or zshrc.
-2. Go SDK can be specified by the `GOROOT` variable.
+2. Go SDK can be specified by the **GOROOT** variable.
     - You do not need to set this variable unless you plan to use different Go version.
 3. To view the current state of all of yours Go environment variables execute: `go env`.
 4. To view all configurable variables and their meaning execute: `go help environment`.
@@ -106,7 +106,7 @@ fmt.Println("Hello world!")}
     - We will replace our "Hello world!" string with a constant from "github.com/course-go/code" repository.
     - To add the `course-go code` repository to the project's dependencies execute: `go get github.com/course-go/code`
     - Note that `course-go/code` was added to the `go.mod` file with a check-sum of it in `go.sum`.
-    - The source code of the repository got downloaded to the `$GOPATH/pkg` directory.
+    - The source code of the repository got downloaded to the **$GOPATH/pkg** directory.
         - Feel free to check it out, to get a better sense of how it works.
 2. We can now use the exported code from `course-go/code` like this:
 
@@ -129,7 +129,7 @@ func main() {
 1. We will install the `go present` tool which is used in the course for presenting slides.
     - To install it, simply run `go install golang.org/x/tools/cmd/present@latest`.
         - Notice that we have to specify the version (in this case `latest`) when we are not in a Go module.
-    – This downloads the source code, builds it and saves the executable binary.
+        – This downloads the source code, builds it and saves the executable binary.
         - The executable will be saved to directory specified by **$GOBIN** which defaults to **$GOPATH/bin**.
         - Execute: `go help install` to learn more.
         - Do not forget to add this directory to your path for convenience like so: `export PATH="$GOPATH/bin:$PATH"`
