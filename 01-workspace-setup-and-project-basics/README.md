@@ -129,7 +129,9 @@ func main() {
 1. We will install the `go present` tool which is used in the course for presenting slides.
     - To install it, simply run `go install golang.org/x/tools/cmd/present@latest`.
         - Notice that we have to specify the version (in this case `latest`) when we are not in a Go module.
-    – This downloads the source code, builds it and saves the executable binary into the *$GOPATH/bin* directory.
+    – This downloads the source code, builds it and saves the executable binary.
+        - The executable will be saved to directory specified by **$GOBIN** which defaults to **$GOPATH/bin**.
+        - Execute: `go help install` to learn more.
         - Do not forget to add this directory to your path for convenience like so: `export PATH="$GOPATH/bin:$PATH"`
 2. Clone the [lectures repository](https://github.com/course-go/lectures).
 3. Move into it and execute the present binary: `present`.
