@@ -12,30 +12,30 @@ This repository contains a collection of well-documented exercises that are desi
 
 ## Exercise ideas
 
-1. Introduction
-    - practise running **go** executable with hello world
-2. Basics #1
+1. Introduction ✅
+    - practice running **go** executable with hello world
+2. Fundamentals #1
     - solve basic katas
-3. Basics #2
+3. Fundamentals #2
     - solve collections katas
-4. Concurrency and parallelism
+4. Concurrency & parallelism
     - solve channel and concurrency katas
-5. Advanced
-    - generate pprof profile
-    - load configuration
-6. Building APIs
-    - implement simple REST API
-7. Docker
-    - create Dockerfile for an API
-    - start services via Docker compose
-8. Databases
+5. Generics
+    - linked-list implementation
+6. Testing
+    - create multiple tests
+7. PPROF
+    - generate and examine pprof profile
+8. REST API
+    - finish implementation of simple REST API
+9. Docker
+    - create dockerfile
+10. Docker compose
+    - create docker compose
+11. Databases
     - create queries using pgx (database/sql)
     - create and use GORM models
-9. CI/CD
+12. CI/CD
     - create GitHub CI pipeline
-10. Event Driven Communication
-    - [TO BE REMOVED?]
-11. Production
-    - add logs to existing service
-    - proxy services using Caddy
-
+13. Promethus
+    - export prometheus metrics
