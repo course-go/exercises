@@ -8,7 +8,7 @@ This repository contains a collection of well-documented exercises that are desi
 
 ## Exercises
 
-1. Introduction ✅
+1. Introduction
     - practice running **go** executable with hello world
 2. Fundamentals #1
     - solve basic katas
@@ -16,7 +16,7 @@ This repository contains a collection of well-documented exercises that are desi
     - solve collections katas
 4. Concurrency & parallelism
     - solve channel and concurrency katas
-5. Generics & testing ✅
+5. Generics & testing
     - linked-list implementation
     - test the implementation
 6. PPROF
