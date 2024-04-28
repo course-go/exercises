@@ -1,0 +1,37 @@
+version: "3"
+name: todos
+
+services:
+  api:
+    build: 
+      context: "."
+    restart: "unless-stopped"
+    depends_on: 
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: "postgres://postgres:postgres@postgres:5432/todos"
+      PORT: 8080
+    networks: [ todos ]
+    ports:
+      - "8080:8080"
+
+  postgres:
+    image: "postgres:16-alpine"
+    restart: "always"
+    environment:
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres
+        POSTGRES_DB: todos
+    networks: [ todos ]
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: [ "CMD-SHELL", "sh -c 'pg_isready -U postgres -d todos'" ]
+      interval: 2s
+      timeout: 3s
+      retries: 10
+
+networks:
+  todos:
+    driver: bridge
