@@ -12,25 +12,50 @@ services:
     environment:
       DATABASE_URL: "postgres://postgres:postgres@postgres:5432/todos"
       PORT: 8080
-    networks: [ todos ]
     ports:
       - "8080:8080"
+    networks: [ todos ]
 
   postgres:
     image: "postgres:16-alpine"
-    restart: "always"
+    restart: "unless-stopped"
     environment:
         POSTGRES_USER: postgres
         POSTGRES_PASSWORD: postgres
         POSTGRES_DB: todos
-    networks: [ todos ]
     ports:
       - "5432:5432"
+    networks: [ todos ]
     healthcheck:
       test: [ "CMD-SHELL", "sh -c 'pg_isready -U postgres -d todos'" ]
       interval: 2s
       timeout: 3s
       retries: 10
+
+  prometheus:
+    image: prom/prometheus
+    restart: unless-stopped
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yaml"
+    ports:
+      - "9090:9090"
+    networks: [ todos ]
+    volumes:
+      - ./configs/prometheus:/etc/prometheus
+      - ./data/prometheus:/prometheus
+
+  grafana:
+    image: grafana/grafana
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    networks: [ todos ]
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=grafana
+    volumes:
+      - ./configs/grafana:/etc/grafana/provisioning/datasources
+      - ./data/grafana:/var/lib/grafana
 
 networks:
   todos:
