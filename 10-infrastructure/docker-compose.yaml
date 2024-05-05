@@ -1,0 +1,28 @@
+version: "3"
+name: todos
+
+services:
+  ping-pong-1:
+    image: ghcr.io/course-go/ping-pong
+    restart: "unless-stopped"
+    environment:
+      - INSTANCE=1
+    networks: [ ping-pong ]
+
+  ping-pong-2:
+    image: ghcr.io/course-go/ping-pong
+    restart: "unless-stopped"
+    environment:
+      - INSTANCE=2
+    networks: [ ping-pong ]
+
+  ping-pong-3:
+    image: ghcr.io/course-go/ping-pong
+    restart: "unless-stopped"
+    environment:
+      - INSTANCE=3
+    networks: [ ping-pong ]
+
+networks:
+  ping-pong:
+    driver: bridge
