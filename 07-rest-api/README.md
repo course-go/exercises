@@ -12,13 +12,15 @@ The API specification is provided in the form of a OpenAPI Specification. It can
 
 Also note, that the initial implementation already contains a in-memory repository implementation. If the implementation of the repository does not fit your needs, feel free to adjust it.
 
-1. Implement endpoint handlers.
+1. Extend the Todo struct with additional fields.
+    - The components sections of the OpenAPI spec could help you out.
+2. Implement endpoint handlers.
     - Starting with a single endpoint first is adviced.
     - I suggest implementing all of the behaviour in the `main` function first.
     - The endpoints will require new struct definitions for parsing the requests and responses.
-2. Create a file for your controllers and move them out of the `main` file.
+3. Create a file for your controllers and move them out of the `main` file.
     - The structure is up to you.
-3. Wire all the dependendecies in the `main` function and run the server.
+4. Wire all the dependendecies in the `main` function and run the server.
     - This should be the `main` function's only responsibility.
 
 Here is a sample from the [documentation](https://pkg.go.dev/net/http#Get) to get you started:
