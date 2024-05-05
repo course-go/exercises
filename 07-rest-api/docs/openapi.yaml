@@ -1,0 +1,278 @@
+openapi: 3.1.0
+info:
+  title: Todos API
+  description: A simple todo app API
+  license:
+    name: MIT
+  version: 1.0.0
+servers:
+  - url: https://localhost:8080
+tags:
+  - name: todo
+    description: Everything about your todos
+paths:
+  /todos:
+    get:
+      tags:
+        - todo
+      summary: Find todos
+      description: Returns all todos
+      operationId: getTodos
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                data:
+                  todos: [
+                      {
+                        id: d1b9e736-e664-4f29-9000-5c826f6ad84c,
+                        description: Do the dishes,
+                        completed_at: 2024-05-05 10:52:34.303361 +0200 CEST m=+0.000067668,
+                        created_at: 2024-05-05 10:51:41.740638 +0200 CEST m=+0.000072793,
+                        updated_at: 2024-05-05 10:52:34.303361 +0200 CEST m=+0.000067668
+                      },
+                      {
+                        id: 7001c5a8-0349-47a8-8a95-cb7b5debac0c,
+                        description: Mop the floor,
+                        completed_at: nil,
+                        created_at: 2024-05-05 10:51:41.740638 +0200 CEST m=+0.000072793,
+                      }
+                    ]
+    post:
+      tags:
+        - todo
+      summary: Create  todo
+      description: Creates todo and returns it
+      operationId: createTodo
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewTodo'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Todo'
+              example:
+                data:
+                  todo: 
+                    id: d1b9e736-e664-4f29-9000-5c826f6ad84c
+                    description: Do the dishes
+                    completed_at: null
+                    created_at: 2024-05-05 10:51:41.740638 +0200 CEST m=+0.000072793
+                    updated_at: 2024-05-05 10:51:41.740638 +0200 CEST m=+0.000072793
+        '400':
+          description: Invalid request body supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                error: "error message"
+  /todos/{todoId}:
+    get:
+      tags:
+        - todo
+      summary: Find todo
+      description: Returns a single todo
+      operationId: getTodo
+      parameters:
+        - name: todoId
+          in: path
+          description: ID of todo
+          required: true
+          schema:
+            type: string
+            example: d1b9e736-e664-4f29-9000-5c826f6ad84c
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Todo'
+              example:
+                data:
+                  todo: 
+                    id: d1b9e736-e664-4f29-9000-5c826f6ad84c
+                    description: Do the dishes
+                    completed_at: 2024-05-05 10:52:34.303361 +0200 CEST m=+0.000067668
+                    created_at: 2024-05-05 10:51:41.740638 +0200 CEST m=+0.000072793
+                    updated_at: 2024-05-05 10:52:34.303361 +0200 CEST m=+0.000067668
+        '400':
+          description: Invalid UUID supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                error: "error message"
+        '404':
+          description: Todo not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                error: "error message"
+    put:
+      tags:
+        - todo
+      summary: Update todo
+      description: Updates a single todo
+      operationId: updateTodo
+      parameters:
+        - name: todoId
+          in: path
+          description: ID of todo
+          required: true
+          schema:
+            type: string
+            example: d1b9e736-e664-4f29-9000-5c826f6ad84c
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdatedTodo'
+            example:
+              description: Do the dishes
+              completed_at: 2024-05-05 10:52:34.303361 +0200 CEST m=+0.000067668
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Todo'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Todo'
+        '400':
+          description: Invalid request body or UUID supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                error: "error message"
+        '404':
+          description: Todo not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                error: "error message"
+    delete:
+      tags:
+        - todo
+      summary: Delete todo
+      description: Deletes a single todo
+      operationId: deleteTodo
+      parameters:
+        - name: todoId
+          in: path
+          description: ID of todo
+          required: true
+          schema:
+            type: string
+            example: d1b9e736-e664-4f29-9000-5c826f6ad84c
+      responses:
+        '204':
+          description: Successful operation
+        '400':
+          description: Invalid UUID supplied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                error: "error message"
+        '404':
+          description: Todo not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+              example:
+                error: "error message"
+components:
+  schemas:
+    Todo:
+      type: object
+      required:
+        - id
+        - description
+        - completed_at
+        - created_at
+      properties:
+        id:
+          type: string
+          example: 4319fe6a-49bb-4599-ac66-19373960028e
+        description:
+          type: string
+          example: "Vacuum"
+        completed_at:
+          type: string
+          example: null
+        created_at:
+          type: string
+          example: "2024-05-05 10:49:25.505509 +0200 CEST m=+0.000192793"
+        updated_at:
+          type: string
+          example: "2024-05-05 10:49:25.505509 +0200 CEST m=+0.000192793"
+    UpdatedTodo:
+      type: object
+      required:
+        - description
+        - completed_at
+      properties:
+        description:
+          type: string
+          example: "Vacuum"
+        completed_at:
+          type: string
+          example: "2024-05-05 10:49:25.505509 +0200 CEST m=+0.000192793"
+    NewTodo:
+      type: object
+      required:
+        - description
+      properties:
+        description:
+          type: string
+          example: "Vacuum"
+    TodoResponse:
+      type: object
+      required:
+        - todo
+      properties:
+        todo: 
+          $ref: '#/components/schemas/Todo'
+    TodosResponse:
+      type: object
+      required:
+        - todos
+      properties:
+        todos:
+          type: array
+          items:
+            $ref: '#/components/schemas/Todo'
+    ApiResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          oneOf:
+            - $ref: '#/components/schemas/TodoResponse'
+            - $ref: '#/components/schemas/TodosResponse'
+        error:
+          type: string
