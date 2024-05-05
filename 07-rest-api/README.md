@@ -6,7 +6,7 @@ The goal of this exercise is to practice implementing a HTTP API using the Go st
 
 The assignment consists of implementing a todo app API. (Yes, yes... I know...). You may find it boring, but that's good. We do not want to tackle complex business logic. The sole goal is to practice the [net/http](https://pkg.go.dev/net/http) package's API and convention.
 
-### REST API
+### Implementation
 
 The API specification is provided in the form of a OpenAPI Specification. It can be found under the `/docs` directory. Many IDEs allow you to inspect it using a UI. If your IDE or code editor does not support it, you can use the [Swagger Editor](https://editor.swagger.io) or any other similar tool.
 
@@ -33,4 +33,14 @@ http.HandleFunc("/bar", func(w http.ResponseWriter, r *http.Request) {
 })
 
 log.Fatal(http.ListenAndServe(":8080", nil))
+```
+
+### Testing
+
+To manually test the API you can either:
+- Use an existing [Postman collection](https://www.postman.com/course-go/workspace/todos/collection/34577807-d063602d-3ac8-48f5-ac87-8edcd1576bc4?action=share&creator=34577807) prepared for this exercise
+- Use `curl` to invoke the endpoints like so:
+
+```
+curl -X POST --header "Content-Type: application/json"  --data '{"description":"cook"}' "localhost:8080/v1/todos" | jq
 ```
