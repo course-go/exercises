@@ -9,27 +9,27 @@ This repository contains a collection of well-documented exercises that are desi
 ## Exercises
 
 1. Introduction
-    - practice running **go** executable with hello world
+    - Set-up Go environment
+    - Get familiar with the go executable
 2. Fundamentals #1
-    - solve basic katas
+    - Basic katas
 3. Fundamentals #2
-    - solve collections katas
-4. Concurrency & parallelism
-    - solve channel and concurrency katas
-5. Generics & testing
-    - linked-list implementation
-    - test the implementation
-6. PPROF
-    - generate and examine pprof profile
+    - Collection katas
+4. Concurrency & Parallelism
+    - Channel and concurrency katas
+5. Generics & Testing
+    - Implement and test a generic data structure
+6. Optimizations
+    - Generate and examine profiles using pprof 
 7. REST API
-    - finish implementation of simple REST API
+    - Implement a Todo App REST API using net/http
 8. Docker
-    - create dockerfile
-    - create docker compose
+    - Create Dockerfile & Compose for the Todo App
 9. Databases
-    - create queries using pgx (database/sql)
-    - create and use GORM models
-10. CI/CD
-    - create GitHub CI pipeline
-11. Promethus
-    - export prometheus metrics
+    - Reimplement Todo App repository using pgx
+10. Infrastructure
+    - Set-up Caddy server for ping-pong
+    - GCP
+11. Observability
+    - Expose Prometheus metrics for the Todo App
+    - OpenTelemetry Demo
