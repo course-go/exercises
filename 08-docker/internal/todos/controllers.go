@@ -33,6 +33,14 @@ type Response struct {
 	Error string         `json:"error,omitempty"`
 }
 
+func ResponseErrorBytes(httpCode int) []byte {
+	response := Response{
+		Error: http.StatusText(httpCode),
+	}
+	bytes, _ := json.Marshal(response) // ignores error for convenience
+	return bytes
+}
+
 func (a API) getTodos(w http.ResponseWriter, r *http.Request) {
 	todos := a.repository.getTodos()
 	response := Response{
@@ -43,7 +51,9 @@ func (a API) getTodos(w http.ResponseWriter, r *http.Request) {
 
 	bytes, err := json.Marshal(response)
 	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
+		code := http.StatusInternalServerError
+		w.WriteHeader(code)
+		w.Write(ResponseErrorBytes(code))
 		return
 	}
 
@@ -57,7 +67,9 @@ func (a API) getTodo(w http.ResponseWriter, r *http.Request) {
 			"uuid", r.PathValue("id"),
 			"error", err,
 		)
-		w.WriteHeader(http.StatusBadRequest)
+		code := http.StatusBadRequest
+		w.WriteHeader(code)
+		w.Write(ResponseErrorBytes(code))
 		return
 	}
 
@@ -67,7 +79,9 @@ func (a API) getTodo(w http.ResponseWriter, r *http.Request) {
 			"uuid", id.String(),
 			"error", err,
 		)
-		w.WriteHeader(http.StatusBadRequest)
+		code := http.StatusNotFound
+		w.WriteHeader(code)
+		w.Write(ResponseErrorBytes(code))
 		return
 	}
 
@@ -75,7 +89,9 @@ func (a API) getTodo(w http.ResponseWriter, r *http.Request) {
 		slog.Error("could not retrieve todos from database",
 			"error", err,
 		)
-		w.WriteHeader(http.StatusInternalServerError)
+		code := http.StatusInternalServerError
+		w.WriteHeader(code)
+		w.Write(ResponseErrorBytes(code))
 		return
 	}
 
@@ -86,7 +102,9 @@ func (a API) getTodo(w http.ResponseWriter, r *http.Request) {
 	}
 	bytes, err := json.Marshal(response)
 	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
+		code := http.StatusInternalServerError
+		w.WriteHeader(code)
+		w.Write(ResponseErrorBytes(code))
 		return
 	}
 
@@ -101,7 +119,9 @@ func (a API) createTodo(w http.ResponseWriter, r *http.Request) {
 	body := r.Body
 	bodyBytes, err := io.ReadAll(body)
 	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
+		code := http.StatusInternalServerError
+		w.WriteHeader(code)
+		w.Write(ResponseErrorBytes(code))
 		return
 	}
 
@@ -112,7 +132,9 @@ func (a API) createTodo(w http.ResponseWriter, r *http.Request) {
 		slog.Error("unbindable body received",
 			"error", err,
 		)
-		w.WriteHeader(http.StatusBadRequest)
+		code := http.StatusBadRequest
+		w.WriteHeader(code)
+		w.Write(ResponseErrorBytes(code))
 		return
 	}
 
@@ -127,7 +149,9 @@ func (a API) createTodo(w http.ResponseWriter, r *http.Request) {
 	}
 	bytes, err := json.Marshal(response)
 	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
+		code := http.StatusInternalServerError
+		w.WriteHeader(code)
+		w.Write(ResponseErrorBytes(code))
 		return
 	}
 
@@ -147,14 +171,18 @@ func (a API) updateTodo(w http.ResponseWriter, r *http.Request) {
 			"uuid", r.PathValue("id"),
 			"error", err,
 		)
-		w.WriteHeader(http.StatusBadRequest)
+		code := http.StatusBadRequest
+		w.WriteHeader(code)
+		w.Write(ResponseErrorBytes(code))
 		return
 	}
 
 	body := r.Body
 	bodyBytes, err := io.ReadAll(body)
 	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
+		code := http.StatusInternalServerError
+		w.WriteHeader(code)
+		w.Write(ResponseErrorBytes(code))
 		return
 	}
 
@@ -165,7 +193,9 @@ func (a API) updateTodo(w http.ResponseWriter, r *http.Request) {
 		slog.Error("unbindable body received",
 			"error", err,
 		)
-		w.WriteHeader(http.StatusBadRequest)
+		code := http.StatusBadRequest
+		w.WriteHeader(code)
+		w.Write(ResponseErrorBytes(code))
 		return
 	}
 
@@ -182,7 +212,9 @@ func (a API) updateTodo(w http.ResponseWriter, r *http.Request) {
 	}
 	bytes, err := json.Marshal(response)
 	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
+		code := http.StatusInternalServerError
+		w.WriteHeader(code)
+		w.Write(ResponseErrorBytes(code))
 		return
 	}
 
@@ -197,18 +229,24 @@ func (a API) deleteTodo(w http.ResponseWriter, r *http.Request) {
 			"uuid", r.PathValue("id"),
 			"error", err,
 		)
-		w.WriteHeader(http.StatusBadRequest)
+		code := http.StatusBadRequest
+		w.WriteHeader(code)
+		w.Write(ResponseErrorBytes(code))
 		return
 	}
 
 	err = a.repository.deleteTodo(id)
 	if errors.Is(err, ErrTodoNotFound) {
-		w.WriteHeader(http.StatusNotFound)
+		code := http.StatusNotFound
+		w.WriteHeader(code)
+		w.Write(ResponseErrorBytes(code))
 		return
 	}
 
 	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
+		code := http.StatusInternalServerError
+		w.WriteHeader(code)
+		w.Write(ResponseErrorBytes(code))
 		return
 	}
 
