@@ -12,11 +12,6 @@ services:
     environment:
       DATABASE_URL: "postgres://postgres:postgres@postgres:5432/todos"
       PORT: 8080
-    logging:
-      driver: loki
-      options:
-        loki-url: http://localhost:3100/loki/api/v1/push
-        loki-external-labels: container_name={{ .Name }},app=todos-api
     ports:
       - "8080:8080"
     networks: [ todos ]
@@ -60,25 +55,6 @@ services:
     volumes:
       - ./configs/grafana:/etc/grafana/provisioning/datasources
       - ./data/grafana:/var/lib/grafana
-
-  jaeger:
-    image: jaegertracing/all-in-one
-    restart: unless-stopped
-    ports:
-      - "4318:4318"
-      - "16686:16686"
-    networks: [ todos ]
-
-  loki:
-    image: grafana/loki
-    restart: unless-stopped
-    ports:
-      - "3100:3100"
-    networks: [ todos ]
-    volumes:
-      - ./configs/loki:/etc/loki
-      - ./data/loki:/tmp/loki
-    command: --config.file=/etc/loki/config.yaml
 
 networks:
   todos:
