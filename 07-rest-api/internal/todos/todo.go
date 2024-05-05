@@ -1,7 +1,13 @@
 package todo
 
-import "github.com/google/uuid"
+import (
+	"time"
+
+	"github.com/google/uuid"
+)
 
 type Todo struct {
-	id uuid.UUID
+	id        uuid.UUID
+	createdAt time.Time
+	updatedAt *time.Time
 }

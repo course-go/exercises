@@ -4,6 +4,7 @@ import (
 	"errors"
 	"slices"
 	"sync"
+	"time"
 
 	"github.com/google/uuid"
 )
@@ -41,6 +42,7 @@ func (r *Repository) createTodo(todo Todo) (createdTodo Todo) {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 	todo.id = uuid.New()
+	todo.createdAt = time.Now()
 	r.todos = append(r.todos, todo)
 	return todo
 }
@@ -52,10 +54,13 @@ func (r *Repository) saveTodo(todo Todo) (savedTodo Todo) {
 		return t.id == todo.id
 	})
 	if index == -1 {
+		todo.createdAt = time.Now()
 		r.todos = append(r.todos, todo)
 		return todo
 	}
 
+	now := time.Now()
+	todo.updatedAt = &now
 	r.todos[index] = todo
 	return todo
 }
