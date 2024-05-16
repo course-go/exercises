@@ -1,6 +1,6 @@
 # Options & Katas
 
-Like the exercise from the last lecture, this exercise involves solving a couple of katas. Additionally, it explores the options builder pattern.
+Like the exercise from the last lecture, this exercise involves solving a couple of katas related to the lecture. Additionally, it explores the options builder pattern.
 
 ## Sections
 
@@ -30,4 +30,4 @@ If you feel lost or do not know how to go about it, Google it or check [this blo
 
 ### Katas
 
-The project also includes a couple of katas in `internal/katas` directory. The katas also contain auxilery functions and data in the subdirectories which you are free to explore, but should not edit in any way. Each kata contains a brief description of the problem which should be fixed.
+The module also includes a couple of katas in the `internal/katas` directory. The katas also contain auxilery functions, type, and data in the subdirectories which you are free to explore, but should not edit in any way. Each kata contains a brief description of the problem which should be fixed.
