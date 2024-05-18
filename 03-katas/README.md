@@ -4,6 +4,8 @@ Like the exercise from the last lecture, this exercise involves solving a couple
 
 ## Sections
 
+You can run the code using the main package in `cmd/katas`.
+
 ### Options builder pattern
 
 In this section, you will explore the "options builder pattern" commonly used in idiomatic Go code.
