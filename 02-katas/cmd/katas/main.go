@@ -12,5 +12,5 @@ func main() {
 	fmt.Println(katas.Fizzbuzz(5))  // "buzz"
 	fmt.Println(katas.Fizzbuzz(15)) // "fizzbuzz"
 
-	// You can test the code here if you'd like
+	// INFO: You can test the code here if you'd like
 }
