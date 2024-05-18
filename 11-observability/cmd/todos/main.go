@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/course-go/exercises/observability/internal/todos"
+	"github.com/course-go/exercises/11-observability/internal/todos"
 	"go.uber.org/zap"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"

@@ -1,4 +1,4 @@
-module github.com/course-go/exercises/observability
+module github.com/course-go/exercises/11-observability
 
 go 1.22.2
 
