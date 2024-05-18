@@ -1,4 +1,4 @@
-# Workspace set-up & Go project basics
+# Workspace & Project Basics
 
 The goal of this exercise is to set-up your Go development environment and practice basic commands using the `go` executable.
 
