@@ -1,6 +1,6 @@
 # Course exercises
 
-This repository contains a collection of well-documented exercises that are designed to be complementary to the lectures. The point of these exercises is to provide students with hand-on experience.
+This repository contains a collection of well-documented exercises that are designed to be complementary to the lectures. The point of these exercises is to provide the course attendees with hand-on experience.
 
 ## Exercises
 
