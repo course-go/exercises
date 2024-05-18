@@ -1,6 +1,6 @@
 module github.com/course-go/exercises/11-observability
 
-go 1.22.2
+go 1.22
 
 require (
 	github.com/gin-gonic/gin v1.9.1
