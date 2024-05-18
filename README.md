@@ -2,10 +2,6 @@
 
 This repository contains a collection of well-documented exercises that are designed to be complementary to the lectures. The point of these exercises is to provide students with hand-on experience.
 
-> [!WARNING]
-> The course is currently a WIP! \
-> None of the things stated here are final.
-
 ## Exercises
 
 1. Workspace & Project Basics [[lecture](https://lectures.course-go.dev/01-introduction.slide) | [exercise](https://github.com/course-go/exercises/blob/master/01-workspace-and-project-basics/README.md)]
