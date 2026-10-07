@@ -40,7 +40,7 @@ You can download and inspect the profile using a single command:
 go tool pprof "http://localhost:${PORT}/debug/pprof/profile"
 ```
 
-This download the profile, saves it, opens it and runs an interactive session in which you can specify the ouput format, filters etc.
+This download the profile, saves it, opens it and runs an interactive session in which you can specify the output format, filters etc.
 
 After you have downloaded the profile, you can resinspect it by using the saved file.
 

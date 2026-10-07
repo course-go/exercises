@@ -1,6 +1,6 @@
 # Databases
 
-The goal of this exercise is to practice implementing a persistance layer for an existing HTTP API.
+The goal of this exercise is to practice implementing a persistence layer for an existing HTTP API.
 
 ## Steps
 
@@ -10,10 +10,10 @@ We will be using PostgreSQL as our RDBMS.
 
 1. Postgres will have to be added to our compose file.
     - Postgres has it's own [image](https://hub.docker.com/_/postgres) on Docker Hub.
-2. [Optional] To enable persistance, you will have to mount a volume for the Postgres to store the data in.
+2. [Optional] To enable persistence, you will have to mount a volume for the Postgres to store the data in.
     - Search for `PGDATA` in the Docker Hub page.
 
-### Persistance
+### Persistence
 
 For our database driver, we will be using the [pgx](https://github.com/jackc/pgx) library in conjunction with the standard `databases/sql` package interfaces.
 

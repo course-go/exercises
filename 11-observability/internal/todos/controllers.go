@@ -221,7 +221,7 @@ func (a API) deleteTodo(c *gin.Context) {
 
 	err = a.repository.deleteTodo(id)
 	if errors.Is(err, gorm.ErrRecordNotFound) {
-		a.logger.Debug("could not delete non-existend todo",
+		a.logger.Debug("could not delete non-existent todo",
 			zap.String("uuid", c.Param("id")),
 			zap.Error(err),
 		)

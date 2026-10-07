@@ -36,6 +36,6 @@ In general, the consumer and producer components are hardly ever equally fast. T
 ### Graceful Shutdown
 
 - Implement graceful shutdown for the application.
-    - I.e., whenever someone will want to terminate the application, the app first flushes all its buffers and gracefuly terminates all of its componenets.
+    - I.e., whenever someone will want to terminate the application, the app first flushes all its buffers and gracefully terminates all of its components.
         - The `SIGINT` nad `SIGTERM` syscalls will do.
     - You will want to inspect the [signal package](https://pkg.go.dev/os/signal).

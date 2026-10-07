@@ -4,11 +4,11 @@ The goal of this exercise is to practice generics and testing package in Go.
 
 ## Steps
 
-One note, you can do these steps in reverse, i.e. writting the tests first and implementing the data structure afterwards. You may know this technique as test-driven development.
+One note, you can do these steps in reverse, i.e. writing the tests first and implementing the data structure afterwards. You may know this technique as test-driven development.
 
 ### Data Structure
 
-The Go standard libary implements some data structures in the [container](https://pkg.go.dev/container) package (linked-list, heap, ring buffer to be precise). Unfortunately, these data structures do not use generics and use the `any` interface.
+The Go standard library implements some data structures in the [container](https://pkg.go.dev/container) package (linked-list, heap, ring buffer to be precise). Unfortunately, these data structures do not use generics and use the `any` interface.
 
 1. Choose the data structure you would like to implement.
     - linked-list
@@ -20,7 +20,7 @@ The Go standard libary implements some data structures in the [container](https:
     - The names are completely up to you, e.g. `<data-structure>.go`.
 3. Implement the data structure.
     - No need to implement all of the methods you can think of, just some will do so the data structure is usable.
-    - Do not create the `main()` function. We are writting a library not an executable.
+    - Do not create the `main()` function. We are writing a library not an executable.
 
 ### Testing
 

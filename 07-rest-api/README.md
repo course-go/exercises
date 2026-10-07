@@ -15,7 +15,7 @@ Also note, that the initial implementation already contains a in-memory reposito
 1. Extend the Todo struct with additional fields.
     - The components sections of the OpenAPI spec could help you out.
 2. Implement endpoint handlers.
-    - Starting with a single endpoint first is adviced.
+    - Starting with a single endpoint first is advised.
     - I suggest implementing all of the behaviour in the `main` function first.
     - The endpoints will require new struct definitions for parsing the requests and responses.
 3. Create a file for your controllers and move them out of the `main` file.

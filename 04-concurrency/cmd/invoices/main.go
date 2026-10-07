@@ -14,5 +14,5 @@ func main() {
 	s := invoice.NewStorage(log)
 	_ = consumer.New(log, s)
 
-	// TODO: Wire the rest of dependecies and run the components.
+	// TODO: Wire the rest of dependencies and run the components.
 }
