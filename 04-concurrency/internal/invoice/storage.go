@@ -15,7 +15,8 @@ type Storage struct {
 
 func NewStorage(logger *slog.Logger) *Storage {
 	return &Storage{
-		logger: logger,
+		logger:   logger,
+		invoices: make(map[ID]Invoice),
 	}
 }
 
