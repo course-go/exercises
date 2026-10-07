@@ -21,9 +21,9 @@ func New(logger *slog.Logger, generator *invoice.Generator) Producer {
 }
 
 func (p *Producer) Start(ctx context.Context, _ chan<- invoice.ID) {
-	slog.Info("started producer")
+	p.logger.Info("started producer")
 	// TODO: Implement Producer functionality.
-	slog.Info("terminated producer")
+	p.logger.Info("terminated producer")
 }
 
 // generateInvoiceID generates new invoice ID using the invoice generator.
@@ -31,7 +31,7 @@ func (p *Producer) Start(ctx context.Context, _ chan<- invoice.ID) {
 func (p *Producer) generateInvoiceID() invoice.ID {
 	time.Sleep(250 * time.Millisecond)
 	ID := p.generator.ID()
-	slog.Debug("generated invoice",
+	p.logger.Debug("generated invoice",
 		"ID", ID,
 	)
 	return ID
