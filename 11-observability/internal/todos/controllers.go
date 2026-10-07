@@ -173,9 +173,7 @@ func (a API) updateTodo(c *gin.Context) {
 	}
 
 	todo := Todo{
-		Model: Model{
-			ID: id,
-		},
+		ID:          id,
 		Description: request.Description,
 		CompletedAt: request.CompletedAt,
 	}
