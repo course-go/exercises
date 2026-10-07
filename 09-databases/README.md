@@ -9,22 +9,22 @@ The goal of this exercise is to practice implementing a persistence layer for an
 We will be using PostgreSQL as our RDBMS.
 
 1. Postgres will have to be added to our compose file.
-    - Postgres has it's own [image](https://hub.docker.com/_/postgres) on Docker Hub.
+    - Postgres has its own [image](https://hub.docker.com/_/postgres) on Docker Hub.
 2. [Optional] To enable persistence, you will have to mount a volume for the Postgres to store the data in.
     - Search for `PGDATA` in the Docker Hub page.
 
 ### Persistence
 
-For our database driver, we will be using the [pgx](https://github.com/jackc/pgx) library in conjunction with the standard `databases/sql` package interfaces.
+For our database driver, we will be using the [pgx](https://github.com/jackc/pgx) library in conjunction with the standard `database/sql` package interfaces.
 
-1. A connection to the database needs to be created when initialization the app.
+1. A connection to the database needs to be created when initializing the app.
     - That should generally be done in the `main` function.
-    - Consider retrieving the database URL using a environmental variable.
+    - Consider retrieving the database URL using an environment variable.
     - Change the `Repository` struct structure and wire the connection into it.
 2. Reimplement the repository methods to use the database.
 3. [Optional] Test out that persisting the data actually works by shutting the app down and up again.
 
-This is a [example usage](https://github.com/jackc/pgx?tab=readme-ov-file#example-usage) from the [pgx library](https://github.com/jackc/pgx) to get you started:
+This is an [example usage](https://github.com/jackc/pgx?tab=readme-ov-file#example-usage) from the [pgx library](https://github.com/jackc/pgx) to get you started:
 
 ```
 func main() {

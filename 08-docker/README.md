@@ -1,6 +1,6 @@
 # Docker
 
-The goal of this exercise is to practice containarizing a HTTP API. The API is a implementation of the Todo app introduced in the previous exercise. If you want to use your own solution instead, you can certainly do so.
+The goal of this exercise is to practice containerizing an HTTP API. The API is an implementation of the Todo app introduced in the previous exercise. If you want to use your own solution instead, you can certainly do so.
 
 ## Steps
 
@@ -23,7 +23,7 @@ The first step is to create a custom image.
 
 ### Docker Compose
 
-As running `docker run` repetitively with the right arguments is tidious, we will want to create a compose file.
+As running `docker run` repetitively with the right arguments is tedious, we will want to create a compose file.
 
 1. Create a new `compose.yaml` in the root of the project.
 2. Set-up a single `api` service.

@@ -48,7 +48,7 @@ with hands-on experience.
 [lecture](https://lectures.course-go.dev/08-containers.slide) |
 [exercise](https://github.com/course-go/exercises/blob/master/08-docker/README.md)
 ]
-    - Create Dockerfile & Compose for the Todo application using databases/sql
+    - Create Dockerfile & Compose for the Todo application using database/sql
 9. Databases [
 [lecture](https://lectures.course-go.dev/09-databases.slide) |
 [exercise](https://github.com/course-go/exercises/blob/master/09-databases/README.md)

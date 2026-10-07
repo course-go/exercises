@@ -32,7 +32,7 @@ Having an implementation is nice, but we can't be sure it works right without pr
 2. Implement a couple of tests for your data structure.
     - All the test functions are prefixed with `Test` in their names and receive `t *testing.T` as argument.
     - If any function lacks this prefix, the `go test` command will never run it.
-    - Test functions with the `*t.Testing` parameter missing will not even compile.
+    - Test functions with the `*testing.T` parameter missing will not even compile.
     - One example of such test function:
 
 ```
@@ -42,16 +42,16 @@ func TestQueueEmpty(t *testing.T) {
 	actual := q.Values()
 
 	if len(actual) != 0 {
-		t.Errorf("%d != %d", 0, actual)
+		t.Errorf("%d != %d", 0, len(actual))
 	}
 }
 ```
 
-It worth pointing out that comparing expected and actual state just using the if statements and the `*t.Testing` parameter is quite tidious. Luckily, assertion libraries exist. One such library is called [testify](github.com/stretchr/testify).
+It is worth pointing out that comparing expected and actual state just using the if statements and the `*testing.T` parameter is quite tedious. Luckily, assertion libraries exist. One such library is called [testify](https://github.com/stretchr/testify).
 
 3. To import testify execute: `go get github.com/stretchr/testify`.
-4. Use it to test you implementation.
-    - The previous test could be rewriten like so:
+4. Use it to test your implementation.
+    - The previous test could be rewritten like so:
 
 ```
 func TestQueueEmpty(t *testing.T) {
@@ -63,7 +63,7 @@ func TestQueueEmpty(t *testing.T) {
 }
 ```
 
-4. Executing the tests is as simple as running: `go test ./...`
+5. Executing the tests is as simple as running: `go test ./...`
     - You can also add the `-v` for verbosity.
     - You can also specify which specific tests to run with `-run X` flag. This command runs test with names that match the `X` regex.
     - As always, `go help test` is your friend.

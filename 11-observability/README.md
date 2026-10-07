@@ -11,7 +11,7 @@ Like the last exercise, this one is also split into two parts:
 All services are already set-up for you in the `compose` file. All you need to do is to instrument the application using the Prometheus client.
 
 1. Add [Prometheus client](https://github.com/prometheus/client_golang) to the dependencies.
-2. Instrument the Todo APP.
+2. Instrument the Todo app.
     - Create a metric for each controller.
         - E.g. total number of request calls for each controller with HTTP response code as label.
         - Follow [this guide](https://prometheus.io/docs/practices/naming/) when naming your metrics and labels.
@@ -27,7 +27,7 @@ All services are already set-up for you in the `compose` file. All you need to d
 
 1. Move on to the Grafana UI.
 2. Create a dashboard for the Todo service.
-3. Create a time-series graph for the controllers endpoints.
+3. Create a time-series graph for the controllers' endpoints.
     - You can also create graphs for the Go runtime metrics.
 
 ## OpenTelemetry
