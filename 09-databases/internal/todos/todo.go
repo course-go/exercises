@@ -7,9 +7,9 @@ import (
 )
 
 type Todo struct {
-	ID          uuid.UUID  `json:"id,omitempty"`
+	ID          uuid.UUID  `json:"id,omitzero"`
 	Description string     `json:"description,omitempty"`
-	CompletedAt *time.Time `json:"completed_at,omitempty"`
-	CreatedAt   time.Time  `json:"created_at,omitempty"`
-	UpdatedAt   *time.Time `json:"updated_at,omitempty"`
+	CompletedAt *time.Time `json:"completed_at,omitzero"`
+	CreatedAt   time.Time  `json:"created_at,omitzero"`
+	UpdatedAt   *time.Time `json:"updated_at,omitzero"`
 }

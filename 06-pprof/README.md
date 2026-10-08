@@ -1,18 +1,18 @@
 # Profiling
 
-The goal of this exercise is to practice generating performance profiles for Go applications and visualizing it using the [pprof](https://github.com/google/pprof) toolkit.
+The goal of this exercise is to practice generating performance profiles for Go applications and visualizing them using the [pprof](https://github.com/google/pprof) toolkit.
 
 ## Steps
 
 ### Server
 
-We will explore profiling a HTTP server. Hence, you will need to run the server first.
+We will explore profiling an HTTP server. Hence, you will need to run the server first.
 
 ```
 PORT=8080 go run cmd/server/main.go
 ```
 
-The server exposes a single `/data` endpoint which then does some processing and generates arbitrary data. Mind that the server can exhaust your systems resources if ran for a prolong amount of time.
+The server exposes a single `/data` endpoint which then does some processing and generates arbitrary data. Mind that the server can exhaust your system's resources if run for a prolonged amount of time.
 
 ### Scripts
 
@@ -24,13 +24,13 @@ The first script is a basic shell script which just `curl`s the server. It can b
 PORT=8080 sh scripts/load.sh
 ```
 
-The second is a JavaScript script that uses the [K6 load testing framework](https://k6.io) developed by Grafana Labs. To run it, you will need the `k6` executable, that can be downloaded [here](https://k6.io/docs/get-started/installation/). The script can be run like so:
+The second is a JavaScript script that uses the [K6 load testing framework](https://grafana.com/docs/k6/latest/) developed by Grafana Labs. To run it, you will need the `k6` executable, that can be downloaded [here](https://grafana.com/docs/k6/latest/set-up/install-k6/). The script can be run like so:
 
 ```
 k6 run scripts/load-k6.js
 ```
 
-Both of these script will do the work. However, I suggest downloading the K6 and checking it out. It is a great tool for use cases like these.
+Both of these scripts will do the work. However, I suggest downloading the K6 and checking it out. It is a great tool for use cases like these.
 
 ### Profiling
 
@@ -40,9 +40,9 @@ You can download and inspect the profile using a single command:
 go tool pprof "http://localhost:${PORT}/debug/pprof/profile"
 ```
 
-This download the profile, saves it, opens it and runs an interactive session in which you can specify the ouput format, filters etc.
+This downloads the profile, saves it, opens it and runs an interactive session in which you can specify the output format, filters etc.
 
-After you have downloaded the profile, you can resinspect it by using the saved file.
+After you have downloaded the profile, you can re-inspect it by using the saved file.
 
 ```
 go tool pprof ~/pprof/pprof.main.alloc_objects.alloc_space.inuse_objects.inuse_space.018.pb.gz
@@ -57,4 +57,4 @@ You can inspect all of the exposed endpoints:
 - /debug/pprof/mutex: stack traces of holders of contended mutexes
 - /debug/pprof/profile: cpu execution
 
-To learn more about the specific, checkout that [pprof package](https://pkg.go.dev/runtime/pprof). Note that some of the endpoints might not return anything.
+To learn more about the specifics, check out the [pprof package](https://pkg.go.dev/runtime/pprof). Note that some of the endpoints might not return anything.

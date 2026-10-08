@@ -7,18 +7,18 @@ The goal of this exercise is to set-up your Go development environment and pract
 ### Installation
 
 1. Download Go.
-    - Consult your package manager. If it provides a up-to-date version of Go install it using it.
+    - Consult your package manager. If it provides an up-to-date version of Go, install it using it.
         - MacOS [brew]: `$ brew install go`
         - Ubuntu [apt]: `$ sudo apt install golang-go`
         - Arch [pacman]: `$ sudo pacman -S go`
-        - Windows [cocolatey]: `$ choco install golang`
+        - Windows [chocolatey]: `$ choco install golang`
     - If your package manager does not provide you with Go package or if it is not up-to-date, install Go manually using [the official guide](https://go.dev/doc/install).
 2. Verify your installation.
     - `$ go version`
 3. Choose your IDE.
     - If you are fan of JetBrains tools you can use their dedicated IDE for Go, [GoLand](https://www.jetbrains.com/go/).
     - If you prefer VS Code just install the [VS Code Go](https://code.visualstudio.com/docs/languages/go) plugin.
-    - If you are old school or you just like staying in your terminal using vim/neovim with [vim-go](https://github.com/fatih/vim-go) is also an excelent choice.
+    - If you are old school or you just like staying in your terminal using vim/neovim with [vim-go](https://github.com/fatih/vim-go) is also an excellent choice.
 
 ### Workspace
 
@@ -32,7 +32,7 @@ The go command and the tools it invokes consult environment variables for config
     - You can change the **GOPATH** by setting it explicitly.
         - E.g. add `export GOPATH=$HOME/.go` to your bashrc or zshrc.
 2. Go SDK can be specified by the **GOROOT** variable.
-    - You do not need to set this variable unless you plan to use different Go version.
+    - You do not need to set this variable unless you plan to use a different Go version.
 3. To view the current state of all of your Go environment variables execute: `$ go env`.
     - Run it and briefly skim over the output.
 4. To view all configurable variables and their meaning execute: `$ go help environment`.
@@ -51,13 +51,13 @@ In this last section, we will create a new Go project and practice basic `go` co
     - `package.json` in Javascript
 3. To create a new module execute: `$ go mod init <name-of-module>`.
     - You can name your module whatever you would like, e.g. "my-project". However, it is a common practice to name your module the same way as the repository in which it will be hosted. E.g. if you wanted to host some project on GitHub, you would name the module "github.com/[my-account]/[my-project]".
-    - The `go.mod` file specifies basic information about your project like it's name, the Go version it uses and list of it's dependencies.
+    - The `go.mod` file specifies basic information about your project like its name, the Go version it uses and a list of its dependencies.
     - To learn more about the `go.mod` execute: `$ go help go.mod`
     - To learn more about go modules execute: `$ go help modules`
 
 #### Building and executing Go files
 
-1. Create a new file named `main.go` which will serve as the projects entrypoint and insert the following code into it.
+1. Create a new file named `main.go` which will serve as the project's entry point and insert the following code into it.
     - This is just a basic hello world program.
 
 ```
@@ -72,16 +72,16 @@ func main() {
 
 2. To execute the program run: `$ go run .`. 
     - This compiles your program and executes it immediately. 
-    - The current directory has to contain the `package main` and the `main` function (the file it-self does not have to be called `main.go` but it is a good convention).
+    - The current directory has to contain the `package main` and the `main` function (the file itself does not have to be called `main.go` but it is a good convention).
 3. Try changing the package name from `main` to `main2` and run the `$ go run .` again.
     - Compiler should throw an error: `package my-project is not a main package`
 4. Changing the name of the `main()` function results in a similar error.
     - `runtime.main_main·f: function main is undeclared in the main package`
 5. Change the source code back to the functioning state as specified above.
-5. To build your program execute: `$ go build .`.
+6. To build your program execute: `$ go build .`.
     - This command compiles your program and generates an executable binary.
     - The binary generates into the current directory and is named after the project's name, as specified by `go.mod`.
-    - The change the output name or directory you can use the `-o` switch like so: `$ go build -o bin/my-binary .`.
+    - To change the output name or directory you can use the `-o` switch like so: `$ go build -o bin/my-binary .`.
 
 #### Formatting
 
@@ -130,7 +130,7 @@ func main() {
 1. We will install the `go present` tool which is used in the course for presenting slides.
     - To install it, simply run `go install golang.org/x/tools/cmd/present@latest`.
         - Notice that we have to specify the version (in this case `latest`) when we are not in a Go module.
-        – This downloads the source code, builds it and saves the executable binary.
+        - This downloads the source code, builds it and saves the executable binary.
         - The executable will be saved to directory specified by **$GOBIN** which defaults to **$GOPATH/bin**.
         - Execute: `go help install` to learn more.
         - Do not forget to add this directory to your path for convenience like so: `export PATH="$GOPATH/bin:$PATH"`

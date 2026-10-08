@@ -2,7 +2,7 @@ package katas
 
 import "github.com/course-go/exercises/03-katas/internal/katas/errors"
 
-// Check demonstates error checking.
+// Check demonstrates error checking.
 // However, the checks are not done properly.
 // Fix the error checks.
 func Check() error {

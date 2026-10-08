@@ -9,16 +9,16 @@ import (
 )
 
 type Model struct {
-	ID        uuid.UUID      `gorm:"primaryKey" json:"id,omitempty"`
-	CreatedAt time.Time      `gorm:"autoUpdateTime:false" json:"created_at,omitempty"`
-	UpdatedAt time.Time      `gorm:"autoUpdateTime:false" json:"updated_at,omitempty"`
+	ID        uuid.UUID      `gorm:"primaryKey" json:"id,omitzero"`
+	CreatedAt time.Time      `gorm:"autoUpdateTime:false" json:"created_at,omitzero"`
+	UpdatedAt time.Time      `gorm:"autoUpdateTime:false" json:"updated_at,omitzero"`
 	DeletedAt gorm.DeletedAt `json:"-"`
 }
 
 type Todo struct {
 	Model
 	Description string     `json:"description,omitempty"`
-	CompletedAt *time.Time `json:"completed_at,omitempty"`
+	CompletedAt *time.Time `json:"completed_at,omitzero"`
 }
 
 func (*Todo) TableName() (name string) {

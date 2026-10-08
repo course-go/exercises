@@ -10,7 +10,7 @@ You can run the code using the main package in `cmd/katas`.
 
 In this section, you will explore the "options builder pattern" commonly used in idiomatic Go code.
 
-The `internal/pizza` directory contains an imlementation of a traditional builder pattern as you know it. Your goal is to rewrite it using the options pattern. This pattern replaces the traditional method chaining on a builder type with supplying a set of functions to the constructor that then modify the structure.
+The `internal/pizza` directory contains an implementation of a traditional builder pattern as you know it. Your goal is to rewrite it using the options pattern. This pattern replaces the traditional method chaining on a builder type with supplying a set of functions to the constructor that then modify the structure.
 
 To give you a hint:
 
@@ -32,4 +32,4 @@ If you feel lost or do not know how to go about it, Google it or check [this blo
 
 ### Katas
 
-The module also includes a couple of katas in the `internal/katas` directory. The katas also contain auxilery functions, type, and data in the subdirectories which you are free to explore, but should not edit in any way. Each kata contains a brief description of the problem which should be fixed.
+The module also includes a couple of katas in the `internal/katas` directory. The katas also contain auxiliary functions, types, and data in the subdirectories which you are free to explore, but should not edit in any way. Each kata contains a brief description of the problem which should be fixed.

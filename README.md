@@ -3,7 +3,7 @@
 This repository contains a collection of well-documented exercises
 that are designed to be complementary to the lectures.
 The point of these exercises is to provide the course attendees
-with hand-on experience.
+with hands-on experience.
 
 ## Exercises
 
@@ -48,17 +48,17 @@ with hand-on experience.
 [lecture](https://lectures.course-go.dev/08-containers.slide) |
 [exercise](https://github.com/course-go/exercises/blob/master/08-docker/README.md)
 ]
-    - Create Dockerfile & Compose for the Todo application using databases/sql
+    - Create Dockerfile & Compose for the Todo application using database/sql
 9. Databases [
 [lecture](https://lectures.course-go.dev/09-databases.slide) |
 [exercise](https://github.com/course-go/exercises/blob/master/09-databases/README.md)
 ]
-    - Implement persistance for the Todo application
+    - Implement persistence for the Todo application
 10. Infrastructure [
 [lecture](https://lectures.course-go.dev/10-infrastructure.slide) |
 [exercise](https://github.com/course-go/exercises/blob/master/10-infrastructure/README.md)
 ]
-    - Set-up Caddy server as a reversed proxy
+    - Set-up Caddy server as a reverse proxy
     for the [ping-pong](https://github.com/course-go/ping-pong) application
     - Explore Google Cloud Platform
 11. Observability [
